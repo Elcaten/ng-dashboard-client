@@ -5,18 +5,20 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { DxDataGridModule } from 'devextreme-angular';
 
 import { AppComponent } from './app.component';
-import { InMemoryDataService } from './in-memory-data.service';
+import { DashboardPanelComponent } from './components/dashboard-panel/dashboard-panel.component';
+import { MockDataService } from './services/mock-data.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DashboardPanelComponent
   ],
   imports: [
     BrowserModule,
     DxDataGridModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
+      MockDataService, { dataEncapsulation: false }
     )
   ],
   providers: [],

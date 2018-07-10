@@ -1,0 +1,16 @@
+<h1>{{title}}</h1>
+<dx-data-grid
+    id="gridContainer"
+    [dataSource]="entities">
+    <dxi-column
+        *ngFor="let name of columnNames"
+        [dataField]="name"
+        [visible]="!entityMetadata[name].hidden"
+        [caption]="entityMetadata[name].displayName"
+        [format]="entityMetadata[name].format"
+        [allowEditing]="entityMetadata[name].editable === true"></dxi-column>
+    <dxo-group-panel [visible]="true"></dxo-group-panel>
+    <dxo-editing
+        mode="cell"
+        [allowUpdating]="true"></dxo-editing>
+</dx-data-grid>

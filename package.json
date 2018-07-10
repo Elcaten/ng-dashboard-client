@@ -20,10 +20,12 @@
     "@angular/platform-browser": "^6.0.0",
     "@angular/platform-browser-dynamic": "^6.0.0",
     "@angular/router": "^6.0.0",
+    "@types/faker": "^4.1.2",
     "angular-in-memory-web-api": "^0.6.0",
     "core-js": "^2.5.4",
     "devextreme": "^18.1.4",
     "devextreme-angular": "^18.1.4",
+    "faker": "^4.1.0",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"
   },

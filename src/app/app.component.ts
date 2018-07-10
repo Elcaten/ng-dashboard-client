@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
-import CustomStore from 'devextreme/data/custom_store';
+import { Component, Host } from '@angular/core';
+import { Observable } from 'rxjs';
 
-import { HeroService } from './hero.service';
+import { hostMetadata } from './models/host.model';
+import { Process, processMetadata } from './models/process.model';
+import { Service, serviceMetadata } from './models/service.model';
+import { FetchDataService } from './services/fetch-data.service';
 
 @Component({
   selector: 'app-root',
@@ -9,20 +12,13 @@ import { HeroService } from './hero.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public dataSource: any = {};
+  public hosts$: Observable<Host[]> = this.fetch.getHosts();
+  public processes$: Observable<Process[]> = this.fetch.getProcesses();
+  public services$: Observable<Service[]> = this.fetch.getServices();
 
-  constructor(private heroService: HeroService) {
-    this.dataSource.store = new CustomStore({
-      load: function (loadOptions: any) {
-        return heroService.getHeroes()
-          .then((data: any) => {
-            return {
-              data: data,
-              totalCount: data ? data.length : 0
-            };
-          })
-          .catch(error => { throw new Error('Data Loading Error'); });
-      }
-    });
-  }
+  public hostMetadata = hostMetadata;
+  public processMetadata = processMetadata;
+  public serviceMetadata = serviceMetadata;
+
+  constructor(private fetch: FetchDataService) { }
 }
