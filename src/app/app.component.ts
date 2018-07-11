@@ -21,4 +21,8 @@ export class AppComponent {
   public serviceMetadata = serviceMetadata;
 
   constructor(private fetch: FetchDataService) { }
+
+  updateProcess(process: Process) {
+    this.fetch.updateProcess(process);
+  }
 }

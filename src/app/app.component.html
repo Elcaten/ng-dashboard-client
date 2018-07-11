@@ -8,5 +8,6 @@
     [entityMetadata]="serviceMetadata"></app-dashboard-panel>
 <app-dashboard-panel
     title="Процессы"
+    (enityUpdate)="updateProcess($event)"
     [entities]="processes$ | async"
     [entityMetadata]="processMetadata"></app-dashboard-panel>

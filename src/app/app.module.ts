@@ -16,10 +16,7 @@ import { MockDataService } from './services/mock-data.service';
   imports: [
     BrowserModule,
     DxDataGridModule,
-    HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      MockDataService, { dataEncapsulation: false }
-    )
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

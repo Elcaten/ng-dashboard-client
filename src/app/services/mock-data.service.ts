@@ -7,6 +7,7 @@ import { Host } from '../models/host.model';
 import { Process } from '../models/process.model';
 import { Service } from '../models/service.model';
 
+/** DEPRECATED */
 export class MockDataService implements InMemoryDbService {
   createDb() {
     interval(1000)

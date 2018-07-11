@@ -1,7 +1,8 @@
-<h1>{{title}}</h1>
+<h3>{{title}}</h3>
 <dx-data-grid
     id="gridContainer"
-    [dataSource]="entities">
+    [dataSource]="entities"
+    (onRowUpdated)="emitEntityUpdate($event)">
     <dxi-column
         *ngFor="let name of columnNames"
         [dataField]="name"

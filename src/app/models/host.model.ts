@@ -26,7 +26,7 @@ export const hostMetadata: EntityMetadata<Host> = {
     format: 'percent'
   },
   ram: {
-    displayName: 'RAM',,
+    displayName: 'RAM',
     format: 'percent'
   }
 };
