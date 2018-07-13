@@ -10,6 +10,7 @@ export type EntityMetadata<T extends Entity> = {
     displayName?: string;
     hidden?: boolean;
     editable?: boolean;
-    format?: string;
+    dataType?: 'string' | 'number' | 'date' | 'boolean' | 'object' | 'datetime';
+    template?: 'gauge' | 'switch'
   };
 };

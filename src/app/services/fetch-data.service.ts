@@ -35,7 +35,7 @@ export class FetchDataService {
   }
 
   updateProcess(process: Process): Observable<any> {
-    return this.http.put(this.processesUrl, process, httpOptions)
+    return this.http.put(`${this.processesUrl}/${process.id}`, process, httpOptions)
       .pipe(
         catchError(this.handleError<any>('updateProcess'))
       );

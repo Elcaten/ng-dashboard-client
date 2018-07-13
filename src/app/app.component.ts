@@ -23,6 +23,6 @@ export class AppComponent {
   constructor(private fetch: FetchDataService) { }
 
   updateProcess(process: Process) {
-    this.fetch.updateProcess(process);
+    this.fetch.updateProcess(process).subscribe(() => { });
   }
 }

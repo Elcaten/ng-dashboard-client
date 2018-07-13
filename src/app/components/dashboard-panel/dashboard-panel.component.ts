@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 
 import { Entity, EntityMetadata } from '../../models/entity.model';
-import { DxDataGridComponent } from '../../../../node_modules/devextreme-angular/ui/data-grid';
 
 @Component({
   selector: 'app-dashboard-panel',

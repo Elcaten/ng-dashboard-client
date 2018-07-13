@@ -19,15 +19,15 @@ export const hostMetadata: EntityMetadata<Host> = {
   },
   cpu: {
     displayName: 'CPU',
-    format: 'percent'
+    template: 'gauge'
   },
   disk: {
     displayName: 'Disk',
-    format: 'percent'
+    template: 'gauge'
   },
   ram: {
     displayName: 'RAM',
-    format: 'percent'
+    template: 'gauge'
   }
 };
 
