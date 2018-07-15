@@ -11,7 +11,8 @@ export const serviceMetadata: EntityMetadata<Service> = {
     hidden: true
   },
   name: {
-    displayName: 'Название'
+    displayName: 'Название',
+    width: 'auto'
   },
   status: {
     displayName: 'Статус'

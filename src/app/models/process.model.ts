@@ -18,18 +18,19 @@ export const processMetadata: EntityMetadata<Process> = {
   status: {
     displayName: 'Состояние',
     editable: true,
-    template: 'switch'
   },
   hasError: {
     displayName: 'Ошибки'
   },
   lastStartDate: {
     displayName: 'Дата последнего запуска',
-    dataType: 'datetime'
+    dataType: 'datetime',
+    format: 'shortDate'
   },
   lastErrorDate: {
     displayName: 'Дата последней ошибки',
-    dataType: 'datetime'
+    dataType: 'datetime',
+    format: 'shortDate'
   }
   ,
   lastErrorText: {

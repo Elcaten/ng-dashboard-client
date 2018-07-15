@@ -1,13 +1,28 @@
-<app-dashboard-panel
-    title="Хосты"
-    [entities]="hosts$ | async"
-    [entityMetadata]="hostMetadata"></app-dashboard-panel>
-<app-dashboard-panel
-    title="Сервисы"
-    [entities]="services$ | async"
-    [entityMetadata]="serviceMetadata"></app-dashboard-panel>
-<app-dashboard-panel
-    title="Процессы"
-    (enityUpdate)="updateProcess($event)"
-    [entities]="processes$ | async"
-    [entityMetadata]="processMetadata"></app-dashboard-panel>
+<app-toolbar (refreshDashboards)="refreshClick$.next()"></app-toolbar>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg">
+            <app-dashboard-panel
+                title="Процессы"
+                (enityUpdate)="updateProcess($event)"
+                [entities]="processes"
+                [entityMetadata]="processMetadata"
+            ></app-dashboard-panel>
+        </div>
+        <div class="col-lg">
+            <app-dashboard-panel
+                title="Хосты"
+                [entities]="hosts"
+                [entityMetadata]="hostMetadata"
+            ></app-dashboard-panel>
+        </div>
+        <div class="col-lg">
+            <app-dashboard-panel
+                title="Сервисы"
+                [entities]="services"
+                [entityMetadata]="serviceMetadata"
+                [enableGroups]="true"
+            ></app-dashboard-panel>
+        </div>
+    </div>
+</div>

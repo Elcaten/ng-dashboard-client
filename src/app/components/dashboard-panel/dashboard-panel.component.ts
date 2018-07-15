@@ -1,19 +1,19 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 
 import { Entity, EntityMetadata } from '../../models/entity.model';
 
 @Component({
   selector: 'app-dashboard-panel',
   templateUrl: './dashboard-panel.component.html',
-  styleUrls: ['./dashboard-panel.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./dashboard-panel.component.scss']
 })
 export class DashboardPanelComponent implements OnChanges {
-  public columnNames: string[];
+  columnNames: string[];
 
   @Input() entities: Entity[];
   @Input() entityMetadata: EntityMetadata<any>;
   @Input() title: string;
+  @Input() enableGroups = false;
   @Output() enityUpdate = new EventEmitter<Entity>();
 
   ngOnChanges(changes: SimpleChanges) {

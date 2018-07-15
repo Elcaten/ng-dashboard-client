@@ -1,5 +1,3 @@
-import { Host } from './host.model';
-
 export interface Entity {
   id: number;
   name: string;
@@ -10,7 +8,9 @@ export type EntityMetadata<T extends Entity> = {
     displayName?: string;
     hidden?: boolean;
     editable?: boolean;
+    alignment?: 'center' | 'left' | 'right';
+    format?: string;
     dataType?: 'string' | 'number' | 'date' | 'boolean' | 'object' | 'datetime';
-    template?: 'gauge' | 'switch'
-  };
+    width?: number | string;
+  }
 };

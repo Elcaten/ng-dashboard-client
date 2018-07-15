@@ -1,34 +1,24 @@
-<h3>{{title}}</h3>
-<dx-data-grid
-    [rowAlternationEnabled]="true"
-    [dataSource]="entities"
-    (onRowUpdated)="emitEntityUpdate($event)">
-    <dxi-column
-        *ngFor="let name of columnNames"
-        [cellTemplate]="entityMetadata[name]?.template"
-        [editCellTemplate]="entityMetadata[name]?.template"
-        [dataField]="name"
-        [visible]="!entityMetadata[name].hidden"
-        [caption]="entityMetadata[name].displayName"
-        [dataType]="entityMetadata[name].dataType"
-        [allowEditing]="entityMetadata[name].editable === true"></dxi-column>
-    <dxo-group-panel [visible]="true"></dxo-group-panel>
-    <dxo-editing
-        mode="cell"
-        [allowUpdating]="true"></dxo-editing>
-    <div
-        *dxTemplate="let d of 'gauge'"
-        class="gauge-wrapper">
-        <round-progress
-
-            [max]="100"
-            [radius]="20"
-            [stroke]="4"
-            [clockwise]="true">
-        </round-progress>
+<div class="card">
+    <div class="card-header">{{title}}</div>
+    <div class="card-body">
+        <dx-data-grid
+            [rowAlternationEnabled]="true"
+            [dataSource]="entities"
+            (onRowUpdated)="emitEntityUpdate($event)">
+            <dxi-column
+                *ngFor="let name of columnNames"
+                [dataField]="name"
+                [alignment]="entityMetadata[name]?.alignment"
+                [visible]="!entityMetadata[name]?.hidden"
+                [format]="entityMetadata[name]?.format"
+                [width]="entityMetadata[name]?.width"
+                [caption]="entityMetadata[name]?.displayName"
+                [dataType]="entityMetadata[name]?.dataType"
+                [allowEditing]="entityMetadata[name]?.editable === true"></dxi-column>
+            <dxo-group-panel [visible]="enableGroups"></dxo-group-panel>
+            <dxo-editing
+                mode="cell"
+                [allowUpdating]="true"></dxo-editing>
+        </dx-data-grid>
     </div>
-    <div *dxTemplate="let d of 'switch'">
-        <dx-switch [value]="d | gridCellData"></dx-switch>
-    </div>
-    <div *ed
-</dx-data-grid>
+</div>

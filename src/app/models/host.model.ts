@@ -12,22 +12,26 @@ export const hostMetadata: EntityMetadata<Host> = {
     hidden: true
   },
   name: {
-    displayName: 'Имя'
+    displayName: 'Имя',
+    width: 'auto'
   },
   status: {
     displayName: 'Состояние'
   },
   cpu: {
     displayName: 'CPU',
-    template: 'gauge'
+    alignment: 'center',
+    format: `##'%'`
   },
   disk: {
     displayName: 'Disk',
-    template: 'gauge'
+    alignment: 'center',
+    format: `##'%'`
   },
   ram: {
     displayName: 'RAM',
-    template: 'gauge'
+    alignment: 'center',
+    format: `##'%'`
   }
 };
 
