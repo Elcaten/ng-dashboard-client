@@ -22,14 +22,13 @@ export class AppComponent {
   public serviceMetadata = serviceMetadata;
 
   constructor(private fetch: FetchDataService, private ref: ChangeDetectorRef) {
-    this.refresh();
-    this.refreshClick$.subscribe(() => this.refresh());
+    this.fetch.hosts$.subscribe(hosts => this.hosts = hosts);
+    this.fetch.processes$.subscribe(processes => this.processes = processes);
+    this.fetch.services$.subscribe(services => this.services = services);
   }
 
   refresh() {
-    this.fetch.getHosts().subscribe(hosts => this.hosts = hosts);
-    this.fetch.getProcesses().subscribe(processes => this.processes = processes);
-    this.fetch.getServices().subscribe(services => this.services = services);
+    this.fetch.refresh();
   }
 
   updateProcess(process: Process) {
