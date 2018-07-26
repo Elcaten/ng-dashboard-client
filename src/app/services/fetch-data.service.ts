@@ -1,8 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import * as faker from 'faker';
-import { Observable, of, timer } from 'rxjs';
-import { catchError, map, switchMap } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 import { Host } from '../models/host.model';
 import { Process } from '../models/process.model';
@@ -17,29 +16,11 @@ const httpOptions = {
 })
 export class FetchDataService {
 
-  private hostsUrl = '/api/hosts';
-  private processesUrl = '/api/processes';
-  private servicesUrl = '/api/services';
+  private hostsUrl = 'http://127.0.0.1:3301/hosts';
+  private processesUrl = 'http://127.0.0.1:3301/processes';
+  private servicesUrl = 'http://127.0.0.1:3301/services';
 
-  constructor(private http: HttpClient) {
-    timer(0, 3000).pipe(
-      switchMap(() => this.getHosts()),
-      map(hosts => {
-        const updHosts: Host[] = hosts.map(host => ({
-          ...host,
-          cpu: faker.random.number({ min: 0, max: 100 }),
-          disk: faker.random.number({ min: 0, max: 100 }),
-          ram: faker.random.number({ min: 0, max: 100 })
-        }));
-        return updHosts;
-      })).subscribe(hosts => {
-        for (const host of hosts) {
-          this.http.put(`${this.hostsUrl}/${host.id}`, host, httpOptions)
-            .pipe(catchError(this.handleError<any>('updateProcess')))
-            .subscribe(() => { });
-        }
-      });
-  }
+  constructor(private http: HttpClient) {}
 
   getHosts(): Observable<Host[]> {
     return this.http.get<Host[]>(this.hostsUrl);

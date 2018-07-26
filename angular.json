@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-dashboard-demo": {
+    "ng-dashboard-client": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-dashboard-demo",
+            "outputPath": "dist/ng-dashboard-client",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -53,18 +53,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-dashboard-demo:build"
+            "browserTarget": "ng-dashboard-client:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-dashboard-demo:build:production"
+              "browserTarget": "ng-dashboard-client:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-dashboard-demo:build"
+            "browserTarget": "ng-dashboard-client:build"
           }
         },
         "test": {
@@ -98,7 +98,7 @@
         }
       }
     },
-    "angular-dashboard-demo-e2e": {
+    "ng-dashboard-client-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -106,7 +106,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-dashboard-demo:serve"
+            "devServerTarget": "ng-dashboard-client:serve"
           }
         },
         "lint": {
@@ -121,7 +121,7 @@
       }
     }
   },
-  "defaultProject": "angular-dashboard-demo",
+  "defaultProject": "ng-dashboard-client",
   "schematics": {
     "@schematics/angular:component": {
       "styleext": "scss"
