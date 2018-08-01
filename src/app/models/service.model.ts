@@ -1,5 +1,6 @@
 import { Entity, EntityMetadata } from './entity.model';
 
+// TODO: вынести в общий с сервером модуль
 export interface Service extends Entity {
   tags: string[];
   status: 'starting' | 'running' | 'stopping' | 'stopped';
@@ -7,7 +8,7 @@ export interface Service extends Entity {
 }
 
 export const serviceMetadata: EntityMetadata<Service> = {
-  id: {
+  _id: {
     hidden: true
   },
   name: {

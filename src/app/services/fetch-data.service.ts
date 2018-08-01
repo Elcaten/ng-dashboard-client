@@ -20,22 +20,22 @@ export class FetchDataService {
   public services$: Observable<Service[]>;
   public processes$: Observable<Process[]>;
 
-  private processesApiUrl = 'http://127.0.0.1:3301/api/processes';
+  private processesApiUrl = 'http://127.0.0.1:3301/api/processes'; // TODO: вынести в общий с сервером модуль
   private socket$: WebSocketSubject<any>;
 
   constructor(private http: HttpClient) {
-    this.socket$ = new WebSocketSubject('ws://localhost:3302');
+    this.socket$ = new WebSocketSubject('ws://localhost:3302'); // TODO: вынести в общий с сервером модуль
     this.hosts$ = this.socket$.pipe(map(message => message.hosts));
     this.services$ = this.socket$.pipe(map(message => message.services));
     this.processes$ = this.socket$.pipe(map(message => message.processes));
   }
 
   refresh() {
-    this.socket$.next({ type: 'getAll' });
+    this.socket$.next({ type: 'REFRESH' }); // TODO: вынести в общий с сервером модуль
   }
 
   updateProcess(process: Process): Observable<any> {
-    return this.http.put(`${this.processesApiUrl}/${process.id}`, process, httpOptions)
+    return this.http.put(`${this.processesApiUrl}/${process._id}`, process, httpOptions)
       .pipe(
         catchError(this.handleError<any>('updateProcess'))
       );

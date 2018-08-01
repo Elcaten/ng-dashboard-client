@@ -1,5 +1,6 @@
 import { Entity, EntityMetadata } from './entity.model';
 
+// TODO: вынести в общий с сервером модуль
 export interface Host extends Entity {
   status: 'online' | 'offline';
   ram: number;
@@ -8,7 +9,7 @@ export interface Host extends Entity {
 }
 
 export const hostMetadata: EntityMetadata<Host> = {
-  id: {
+  _id: {
     hidden: true
   },
   name: {

@@ -1,5 +1,6 @@
 import { Entity, EntityMetadata } from './entity.model';
 
+// TODO: вынести в общий с сервером модуль
 export interface Process extends Entity {
   status: boolean;
   hasError: boolean;
@@ -9,7 +10,7 @@ export interface Process extends Entity {
 }
 
 export const processMetadata: EntityMetadata<Process> = {
-  id: {
+  _id: {
     hidden: true
   },
   name: {

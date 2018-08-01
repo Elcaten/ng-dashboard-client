@@ -1,5 +1,6 @@
+// TODO: вынести в общий с сервером модуль
 export interface Entity {
-  id: number;
+  _id: number; // TODO: разобраться с mongobd id
   name: string;
 }
 
