@@ -6,6 +6,8 @@ import { ToolbarComponent } from 'src/app/components/toolbar/toolbar.component';
 
 import { AppComponent } from './app.component';
 import { DashboardPanelComponent } from './components/dashboard-panel/dashboard-panel.component';
+import { CommonModule } from '../../node_modules/@angular/common';
+import { FormsModule } from '../../node_modules/@angular/forms';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { DashboardPanelComponent } from './components/dashboard-panel/dashboard-
     ToolbarComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
+    FormsModule,
     DxButtonModule,
     DxSwitchModule,
     DxDataGridModule,

@@ -5,6 +5,7 @@ import { hostMetadata } from './models/host.model';
 import { Process, processMetadata } from './models/process.model';
 import { Service, serviceMetadata } from './models/service.model';
 import { FetchDataService } from './services/fetch-data.service';
+import { first } from '../../node_modules/rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -26,12 +27,17 @@ export class AppComponent implements OnDestroy {
   private subsriptions: Subscription[] = [];
 
   constructor(private fetch: FetchDataService, private ref: ChangeDetectorRef) {
-    // TODO: бага - если отключено автообновление, ручное обновление не работает (т.к. отписан от подписок)
-    this.refreshClick$.subscribe(() => this.fetch.refresh());
+    this.refreshClick$.subscribe(() => {
+      this.fetch.refresh();
+      this.fetch.hosts$.pipe(first()).subscribe(hosts => this.hosts = hosts);
+      this.fetch.processes$.pipe(first()).subscribe(processes => this.processes = processes);
+      this.fetch.services$.pipe(first()).subscribe(services => this.services = services);
+    });
 
     this.autoUpdateChange$.subscribe(autoUpdate => {
       if (autoUpdate) {
         this.subscribe();
+        this.fetch.refresh();
       } else {
         this.unsubscribe();
       }

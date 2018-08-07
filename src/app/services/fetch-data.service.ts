@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, share } from 'rxjs/operators';
 import { WebSocketSubject } from 'rxjs/webSocket';
 
 import { Host } from '../models/host.model';
@@ -25,9 +25,9 @@ export class FetchDataService {
 
   constructor(private http: HttpClient) {
     this.socket$ = new WebSocketSubject('ws://localhost:3302'); // TODO: вынести в общий с сервером модуль
-    this.hosts$ = this.socket$.pipe(map(message => message.hosts));
-    this.services$ = this.socket$.pipe(map(message => message.services));
-    this.processes$ = this.socket$.pipe(map(message => message.processes));
+    this.hosts$ = this.socket$.pipe(map(message => message.hosts), share());
+    this.services$ = this.socket$.pipe(map(message => message.services), share());
+    this.processes$ = this.socket$.pipe(map(message => message.processes), share());
   }
 
   refresh() {
