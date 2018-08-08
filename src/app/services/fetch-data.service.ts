@@ -7,6 +7,7 @@ import { WebSocketSubject } from 'rxjs/webSocket';
 import { Host } from '../models/host.model';
 import { Process } from '../models/process.model';
 import { Service } from '../models/service.model';
+import { environment } from 'src/environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -20,11 +21,11 @@ export class FetchDataService {
   public services$: Observable<Service[]>;
   public processes$: Observable<Process[]>;
 
-  private processesApiUrl = 'http://127.0.0.1:3301/api/processes'; // TODO: вынести в общий с сервером модуль
+  private processesApiUrl = `${environment.apiBaseUrl}/processes`;
   private socket$: WebSocketSubject<any>;
 
   constructor(private http: HttpClient) {
-    this.socket$ = new WebSocketSubject('ws://localhost:3302'); // TODO: вынести в общий с сервером модуль
+    this.socket$ = new WebSocketSubject(environment.webSocketUrl);
     this.hosts$ = this.socket$.pipe(map(message => message.hosts), share());
     this.services$ = this.socket$.pipe(map(message => message.services), share());
     this.processes$ = this.socket$.pipe(map(message => message.processes), share());
