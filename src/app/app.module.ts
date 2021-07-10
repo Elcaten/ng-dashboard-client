@@ -6,8 +6,8 @@ import { ToolbarComponent } from 'src/app/components/toolbar/toolbar.component';
 
 import { AppComponent } from './app.component';
 import { DashboardPanelComponent } from './components/dashboard-panel/dashboard-panel.component';
-import { CommonModule } from '../../node_modules/@angular/common';
-import { FormsModule } from '../../node_modules/@angular/forms';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({

@@ -1,11 +1,11 @@
 import { ChangeDetectorRef, Component, Host, OnDestroy } from '@angular/core';
 
-import { Subject, Subscription, BehaviorSubject } from '../../node_modules/rxjs';
+import { Subject, Subscription, BehaviorSubject } from 'rxjs';
 import { hostMetadata } from './models/host.model';
 import { Process, processMetadata } from './models/process.model';
 import { Service, serviceMetadata } from './models/service.model';
 import { FetchDataService } from './services/fetch-data.service';
-import { first } from '../../node_modules/rxjs/operators';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
