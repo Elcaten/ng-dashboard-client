@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'https://ng-dashboard-server.herokuapp.com/api',
-  webSocketUrl: 'wss://ng-dashboard-server.herokuapp.com'
+  apiBaseUrl: 'localhost:3301/api',
+  webSocketUrl: 'ws://localhost:3301'
 };
 
 /*
