@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { DxDataGridModule, DxButtonModule, DxSwitchModule } from 'devextreme-angular';
+import { DxDataGridModule, DxButtonModule, DxSwitchModule, DxToolbarModule } from 'devextreme-angular';
 import { ToolbarComponent } from 'src/app/components/toolbar/toolbar.component';
 
 import { AppComponent } from './app.component';
@@ -10,12 +10,14 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { TableComponent } from './pages/table/table.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
+    TableComponent,
     DashboardPanelComponent,
     ToolbarComponent
   ],
@@ -26,6 +28,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     DxButtonModule,
     DxSwitchModule,
     DxDataGridModule,
+    DxToolbarModule,
     HttpClientModule,
     AppRoutingModule
   ],

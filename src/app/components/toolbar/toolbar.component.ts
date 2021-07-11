@@ -12,6 +12,13 @@ export class ToolbarComponent {
   @Input() autoUpdate: boolean;
   @Output() autoUpdateChange = new EventEmitter<boolean>();
 
+  addButtonOptions = {
+      icon: 'plus',
+      onClick: () => {
+          console.log('Add button has been clicked!');
+      }
+  };
+
   emitAutoUpdate() {
     this.autoUpdate = !this.autoUpdate;
     this.autoUpdateChange.emit(this.autoUpdate);
