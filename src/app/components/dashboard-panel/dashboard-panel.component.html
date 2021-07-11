@@ -5,6 +5,11 @@
             [rowAlternationEnabled]="true"
             [dataSource]="dataSource"
             (onRowUpdated)="emitEntityUpdate($event)">
+            <dxo-search-panel 
+                [visible]="true" 
+                [width]="240" 
+                placeholder="Search...">
+            </dxo-search-panel>
             <dxo-editing
                 mode="cell"
                 [refreshMode]="'reshape'"
