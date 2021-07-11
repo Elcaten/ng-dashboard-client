@@ -38,6 +38,26 @@
             "namedChunks": true
           },
           "configurations": {
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "extractLicenses": true,
+              "vendorChunk": true,
+              "buildOptimizer": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "6mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -63,7 +83,7 @@
               "buildOptimizer": true
             }
           },
-          "defaultConfiguration": ""
+          "defaultConfiguration": "development"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -71,6 +91,9 @@
             "browserTarget": "ng-dashboard-client:build"
           },
           "configurations": {
+            "development": {
+              "browserTarget": "ng-dashboard-client:build:development"
+            },
             "production": {
               "browserTarget": "ng-dashboard-client:build:production"
             }
