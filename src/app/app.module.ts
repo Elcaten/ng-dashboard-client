@@ -8,11 +8,14 @@ import { AppComponent } from './app.component';
 import { DashboardPanelComponent } from './components/dashboard-panel/dashboard-panel.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    DashboardComponent,
     DashboardPanelComponent,
     ToolbarComponent
   ],
@@ -23,7 +26,8 @@ import { FormsModule } from '@angular/forms';
     DxButtonModule,
     DxSwitchModule,
     DxDataGridModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [
