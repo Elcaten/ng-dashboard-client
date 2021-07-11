@@ -10,14 +10,14 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { TableComponent } from './pages/table/table.component';
+import { ComputersComponent } from './pages/computers/computers.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    TableComponent,
+    ComputersComponent,
     DashboardPanelComponent,
     ToolbarItem,
     ToolbarComponent

@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { TableComponent } from './pages/table/table.component';
+import { ComputersComponent } from './pages/computers/computers.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'table', component: TableComponent },
+  { path: 'computers', component: ComputersComponent },
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: '**', redirectTo: 'dashboard' },
 ];

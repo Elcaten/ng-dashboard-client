@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { DxDataGridComponent } from 'devextreme-angular';
 
 import { Entity, EntityMetadata } from '../../models/entity.model';
 
@@ -10,7 +11,7 @@ import { Entity, EntityMetadata } from '../../models/entity.model';
 export class DashboardPanelComponent implements OnChanges {
   columnNames: string[];
 
-  @Input() entities: Entity[];
+  @Input() dataSource: DxDataGridComponent['dataSource']
   @Input() entityMetadata: EntityMetadata<any>;
   @Input() title: string;
   @Input() enableGroups = false;

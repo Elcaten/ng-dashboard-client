@@ -11,21 +11,21 @@
             <app-dashboard-panel
                 title="Процессы"
                 (enityUpdate)="updateProcess($event)"
-                [entities]="processes"
+                [dataSource]="processes"
                 [entityMetadata]="processMetadata"
             ></app-dashboard-panel>
         </div>
         <div class="col-lg">
             <app-dashboard-panel
                 title="Хосты"
-                [entities]="hosts"
+                [dataSource]="hosts"
                 [entityMetadata]="hostMetadata"
             ></app-dashboard-panel>
         </div>
         <div class="col-lg">
             <app-dashboard-panel
                 title="Сервисы"
-                [entities]="services"
+                [dataSource]="services"
                 [entityMetadata]="serviceMetadata"
                 [enableGroups]="true"
             ></app-dashboard-panel>
