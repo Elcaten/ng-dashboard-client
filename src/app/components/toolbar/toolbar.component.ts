@@ -1,4 +1,11 @@
-import { Component, OnInit, Output, Input, EventEmitter, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter, ChangeDetectionStrategy, ChangeDetectorRef, Directive, TemplateRef, ContentChildren, QueryList } from '@angular/core';
+
+@Directive({
+  selector: '[toolbarItem]'
+})
+export class ToolbarItem {
+  constructor(public template: TemplateRef<any>) {}
+}
 
 @Component({
   selector: 'app-toolbar',
@@ -7,10 +14,7 @@ import { Component, OnInit, Output, Input, EventEmitter, ChangeDetectionStrategy
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ToolbarComponent {
-  @Output() updateChange = new EventEmitter();
-
-  @Input() autoUpdate: boolean;
-  @Output() autoUpdateChange = new EventEmitter<boolean>();
+  @ContentChildren(ToolbarItem) items: QueryList<ToolbarItem>;
 
   addButtonOptions = {
       icon: 'plus',
@@ -18,9 +22,4 @@ export class ToolbarComponent {
           console.log('Add button has been clicked!');
       }
   };
-
-  emitAutoUpdate() {
-    this.autoUpdate = !this.autoUpdate;
-    this.autoUpdateChange.emit(this.autoUpdate);
-  }
 }

@@ -2,7 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { DxDataGridModule, DxButtonModule, DxSwitchModule, DxToolbarModule } from 'devextreme-angular';
-import { ToolbarComponent } from 'src/app/components/toolbar/toolbar.component';
+import { ToolbarComponent, ToolbarItem } from 'src/app/components/toolbar/toolbar.component';
 
 import { AppComponent } from './app.component';
 import { DashboardPanelComponent } from './components/dashboard-panel/dashboard-panel.component';
@@ -19,6 +19,7 @@ import { TableComponent } from './pages/table/table.component';
     DashboardComponent,
     TableComponent,
     DashboardPanelComponent,
+    ToolbarItem,
     ToolbarComponent
   ],
   imports: [
