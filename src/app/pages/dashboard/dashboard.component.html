@@ -1,10 +1,10 @@
-<app-toolbar>
+<app-navbar>
     <dx-button *toolbarItem type="default" text="Обновить" (click)="refreshClick$.next()"></dx-button>
     <ng-container *toolbarItem>
         <span class="navbar-text">Автообновление</span>
         <dx-switch [value]="autoUpdateChange$.value" (valueChange)="autoUpdateChange$.next(!autoUpdateChange$.value)"></dx-switch>
     </ng-container>
-</app-toolbar>
+</app-navbar>
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg">
