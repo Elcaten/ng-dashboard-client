@@ -1,18 +1,24 @@
-<nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
-    <a class="navbar-brand" href="#">
-      <img src="assets/icons/dashboard.png" width="30" height="30" class="d-inline-block" alt="">
-      NG Dashboard
-    </a>
-    <dx-button type="text" text="Dashboard" routerLink="/dashboard"></dx-button>
-    <dx-button type="text" text="Computers" routerLink="/computers"></dx-button>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+<nav class="navbar navbar-expand navbar-light bg-light fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/">NG Dashboard</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse text-center justify-content-stretch" id="navbarContent">
-        <ul class="navbar-nav ml-auto">
-            <li *ngFor="let item of items" class="nav-item">
-                <ng-template [ngTemplateOutlet]="item.template"></ng-template>
-              </li>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/dashboard" routerLinkActive="active" >Dashboard</a>
+          </li>
+          <li class="nav-item" >
+            <a class="nav-link" routerLink="/computers" routerLinkActive="active">Computers</a>
+          </li>
         </ul>
+        <form class="d-flex">
+          <ng-container *ngFor="let item of items">
+            <ng-template [ngTemplateOutlet]="item.template"></ng-template>
+          </ng-container>
+        </form>
+      </div>
     </div>
-</nav>
+  </nav>
