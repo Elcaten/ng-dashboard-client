@@ -29,13 +29,11 @@ export class ComputersComponent  {
 
   //TODO: find a better solution to store date
   private toApiModel(computer: Computer) {
-    const result: any = computer;
-    if(computer.introduced) {
-      result['introduced'] =  new Date(computer.introduced).getTime()
-    }
-    if(computer.discontinued) {
-      result['discontinued'] =  new Date(computer.discontinued).getTime()
-    }
+    const result: Computer = computer;
+    result.introduced = computer.introduced ? new Date(computer.introduced).getTime() as any : null;
+    result.discontinued = computer.discontinued ? new Date(computer.discontinued).getTime() as any : null;
+    result.company = computer.company ?? null;
+    result.name = computer.name ?? null;
     return result
   }
 }
